@@ -1,0 +1,53 @@
+.word-list-item
+  padding: 0;
+  margin: 5px 10px;
+
+  .content
+    overflow: hidden
+    position: relative
+
+    .toCard
+      position: absolute;
+      right: 0;
+      top: 5px;
+      fill: accent-first-color
+
+    .arrow
+      position: absolute;
+      right: 50px;
+      top: 10px;
+      fill: main-second-color
+
+  .definitions
+    padding 15px 15px 10px
+
+    .definition
+      padding 5px
+      border-bottom 1px solid common-third-color
+      margin-bottom 5px
+
+      &:last-child
+        border-bottom none
+
+  .word
+    color main-first-color
+    padding-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 14px;
+
+  .letter
+    float: left;
+    height: 50px;
+    background: accent-first-color;
+    width: 50px;
+    text-align: center;
+    font-size: 38px;
+    line-height: 45px;
+    color common-second-color
+
+.word-card-item
+  .word
+    font-size: super-big-font-size;
+    padding: 10px;
+    margin: 10px 0 5px;
