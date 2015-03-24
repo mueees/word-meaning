@@ -12,12 +12,13 @@ input
 
 .btn
 
-  &.saveWordBtn
-    background accent-first-color
-    fill common-second-color
+  svg, span
+    vertical-align middle
+    color main-second-color
+    fill main-second-color
 
   &.btn-accent
-    background  accent-first-color
+    background accent-first-color
     fill common-second-color
     color common-second-color
 
@@ -30,6 +31,9 @@ input
     height: 50px;
     padding: 0;
 
+    svg
+      fill common-second-color
+
   &.btn-link
     outline 0
     border 0
@@ -37,3 +41,9 @@ input
     &:focus
       outline 0
       border 0
+
+.btn-full-width
+  button
+    float: left;
+    width: 50%;
+    box-sizing: border-box;

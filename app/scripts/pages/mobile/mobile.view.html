@@ -2,16 +2,17 @@
 <!--<seed-blade seed-config="_rightBladeConfig"></seed-blade>-->
 <!---->
 
-<header class="itemHeader">
-    <button class="btn btn-link switchBlade">
-        <svg class="svg-icon">
-            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-close47"></use>
-        </svg>
-    </button>
-</header>
 
-<div class="word-card-item">
-    <div class="word">Suspend</div>
+
+<!--<div class="word-card-item">
+    <header class="itemHeader">
+        <button class="btn btn-link closeCard">
+            <svg class="svg-icon">
+                <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-close47"></use>
+            </svg>
+        </button>
+        <div class="word">Suspend</div>
+    </header>
 
     <ul>
         <li>
@@ -37,16 +38,15 @@
         </li>
     </ul>
 
-    <div>
-
-        <button class="btn btn-accent">
+    <div class="btn-full-width">
+        <button class="btn btn-link">
             <svg class="svg-icon">
                 <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-keyboard54"></use>
             </svg>
             <span>deliver</span>
         </button>
 
-        <button class="btn btn-accent">
+        <button class="btn btn-link">
             <span>appal</span>
             <svg class="svg-icon">
                 <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-keyboard53"></use>
@@ -54,18 +54,11 @@
         </button>
     </div>
 
-</div>
+</div>-->
+
+
 
 <!--
-<header class="mainHeader">
-    <button class="btn btn-link switchBlade">
-        <svg class="svg-icon">
-            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-menu55"></use>
-        </svg>
-    </button>
-    <div class="title">Explore</div>
-</header>
-
 <ul>
     <li>
         <div class="card word-list-item">
@@ -98,10 +91,23 @@
             </div>
         </div>
     </li>
-</ul>-->
+</ul>
+-->
 
 
-<!--<button class="btn btn-link btn-round saveWordBtn">
+
+<header class="mainHeader">
+    <button class="btn btn-link switchBlade">
+        <svg class="svg-icon">
+            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-menu55"></use>
+        </svg>
+    </button>
+    <div class="title">
+        Explore
+    </div>
+</header>
+
+<button class="btn btn-link btn-round saveWordBtn">
     <svg class="svg-icon">
         <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
     </svg>
@@ -113,27 +119,50 @@
     </form>
 </div>
 
-<ul>
+<ul class="definitions-list">
     <li>
-        <div class="card">
-            a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a
-            sentence
-            and typically shown with a space on either side when written or printed.
+        <div class="card definition">
+            <div class="text">
+                a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a
+                sentence
+                and typically shown with a space on either side when written or printed.
+            </div>
+            <div class="meta">
+                <div class="attribution">
+                    from Wiktionary, Creative Commons Attribution/Share-Alike License
+                </div>
+            </div>
         </div>
     </li>
     <li>
-        <div class="card">
-            a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to
+        <div class="card definition">
+            <div class="text">
+                a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a
+                sentence
+                and typically shown with a space on either side when written or printed.
+            </div>
+            <div class="meta">
+                <div class="attribution">
+                    from Wiktionary, Creative Commons Attribution/Share-Alike License
+                </div>
+            </div>
         </div>
     </li>
     <li>
-        <div class="card">
-            a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a
-            sentence
-            and typically shown with
+        <div class="card definition">
+            <div class="text">
+                a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a
+                sentence
+                and typically shown with a space on either side when written or printed.
+            </div>
+            <div class="meta">
+                <div class="attribution">
+                    from Wiktionary, Creative Commons Attribution/Share-Alike License
+                </div>
+            </div>
         </div>
     </li>
-</ul>-->
+</ul>
 
 
 <ui-view></ui-view>
