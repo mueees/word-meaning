@@ -27,6 +27,10 @@
                     if(seedConfig.expanded != $scope.expanded){
                         $scope.expanded = seedConfig.expanded;
                     }
+
+                    if(seedConfig.position){
+                        $scope.position = seedConfig.position;
+                    }
                 });
             }
         };

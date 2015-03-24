@@ -142,8 +142,8 @@ module.exports = function (grunt) {
                     compress: false
                 },
                 files: {
-                    '<%= build_dir %>/app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>',
-                    '<%= build_dir %>/app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'
+                    '<%= build_dir %>/app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>'/*,
+                    '<%= build_dir %>/app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'*/
                 }
             },
             compile: {
@@ -398,7 +398,7 @@ module.exports = function (grunt) {
                     shape: {
                         id: {
                             generator: function (path) {
-                                var array = path.split('\\');
+                                var array = path.split('/');
                                 var fileName = array[array.length - 1];
                                 var fileNameArray = fileName.split('.');
                                 return 'svg-icon-' + fileNameArray[0];

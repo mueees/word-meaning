@@ -3,17 +3,13 @@
     angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope, $timeout) {
 
         $rootScope._leftBladeConfig = {
-            expanded: false
+            expanded: true,
+            position: 'left'
         };
 
         $rootScope._rightBladeConfig = {
             expanded: false
         };
-
-        $timeout(function () {
-            $rootScope._leftBladeConfig = b;
-            expandLeftBlade();
-        }, 500);
 
         function expandLeftBlade(){
             if(!$rootScope._leftBladeConfig.expanded){
@@ -40,6 +36,7 @@
 
             setLeftConfig: function (config) {
                 if(config != $rootScope._leftBladeConfig){
+                    config.position = 'left';
                     $rootScope._leftBladeConfig = config;
                 }
             },

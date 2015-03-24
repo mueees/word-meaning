@@ -1,0 +1,27 @@
+seed-menu
+  display block
+
+  a
+    display: block;
+    padding: 20px;
+    position: relative;
+    padding-left: 80px;
+    color common-second-color
+
+    &:active, &:focus
+      text-decoration none
+      color common-second-color
+
+    &:hover, &.active
+      text-decoration none
+      color accent-first-color
+      background main-first-color
+
+      .svg-icon
+        fill accent-first-color
+
+    .svg-icon
+      fill common-second-color
+      position: absolute;
+      top: 10px;
+      left: 25px;
