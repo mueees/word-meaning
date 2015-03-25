@@ -1,6 +1,7 @@
 (function(){
     'use strict';
-    angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope, $timeout) {
+
+    angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope) {
 
         $rootScope._leftBladeConfig = {
             expanded: true,

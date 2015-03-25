@@ -27,10 +27,10 @@ module.exports = {
                 'app/scripts/pages/**/*.value.js',
                 'app/scripts/pages/**/*.run.js',
                 'app/scripts/pages/**/*.service.js',
+                'app/scripts/pages/**/*.resource.js',
                 'app/scripts/pages/**/*.class.js',
                 'app/scripts/pages/**/*.directive.js',
                 'app/scripts/pages/**/*.controller.js',
-                'app/scripts/pages/**/*.resource.js',
                 'app/scripts/pages/**/*.filter.js',
                 '!app/scripts/pages/**/*.test.js'
             ],
@@ -44,10 +44,10 @@ module.exports = {
                 'app/scripts/core/**/*.value.js',
                 'app/scripts/core/**/*.run.js',
                 'app/scripts/core/**/*.service.js',
+                'app/scripts/core/**/*.resource.js',
                 'app/scripts/core/**/*.class.js',
                 'app/scripts/core/**/*.directive.js',
                 'app/scripts/core/**/*.controller.js',
-                'app/scripts/core/**/*.resource.js',
                 'app/scripts/core/**/*.filter.js',
                 '!app/scripts/core/**/*.test.js'
             ],

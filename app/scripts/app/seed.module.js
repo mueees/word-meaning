@@ -10,7 +10,7 @@ var seed = seed || {};
 
         //pages
         'seed.promo',
-        'seed.mobile'
+        'seed.mobile.explore'
     ];
     angular.module('seed', inject);
 
