@@ -7,6 +7,10 @@
                 localStorageService.set('words', []);
             }
 
+            if (!localStorageService.get('recent')) {
+                localStorageService.set('recent', []);
+            }
+
             if (!localStorageService.get('remembered')) {
                 localStorageService.set('remembered', []);
             }
@@ -81,6 +85,14 @@
                 });
 
                 return result;
+            },
+
+            toRecent: function (id) {
+                var recent = localStorageService.get('recent');
+                if(recent.length > 50){
+                    recent = recent.splice(0, 49);
+                }
+                recent.unshift(id);
             }
         }
     });

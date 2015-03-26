@@ -1,6 +1,6 @@
 (function () {
     'use strict';
     angular.module('seed').config(function ($urlRouterProvider) {
-        $urlRouterProvider.otherwise("/mobile/list");
+        $urlRouterProvider.otherwise("/mobile/card");
     });
 })();

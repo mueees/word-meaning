@@ -19,6 +19,7 @@
                 var wordFromCache = Cache.getWord(word);
 
                 if (wordFromCache) {
+                    Cache.toRecent(wordFromCache.id);
                     deferred.resolve(wordFromCache);
                 } else {
                     WordModel.one().get({word: word}).then(function (wordModel) {
@@ -27,6 +28,7 @@
                         plainWord.word = word;
                         plainWord.id = seedGUID.generate();
 
+                        Cache.toRecent(plainWord.id);
                         Cache.toCache(plainWord);
 
                         deferred.resolve(plainWord);

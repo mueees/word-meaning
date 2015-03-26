@@ -3,8 +3,12 @@
         <span class="letter">{{firstLetter}}</span>
         <span class="word">{{word.word}}</span>
 
-        <svg class="svg-icon arrow ">
+        <svg class="svg-icon arrow " ng-if="!showDefinition">
             <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-expand38"></use>
+        </svg>
+
+        <svg class="svg-icon arrow " ng-if="showDefinition">
+            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-expand39"></use>
         </svg>
 
         <!--<button class="btn btn-link toCard">
