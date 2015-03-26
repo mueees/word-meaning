@@ -23,6 +23,7 @@
                 } else {
                     WordModel.one().get({word: word}).then(function (wordModel) {
                         var plainWord = wordModel.plain();
+
                         plainWord.word = word;
                         plainWord.id = seedGUID.generate();
 
@@ -33,6 +34,18 @@
                 }
 
                 return promise;
+            },
+
+            rememberById: function (id) {
+                Cache.rememberById(id);
+            },
+
+            forgetById: function (id) {
+                Cache.forgetById(id);
+            },
+
+            getRememberedWords: function () {
+                return Cache.getRememberedWords();
             }
         };
     });

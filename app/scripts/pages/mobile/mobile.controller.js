@@ -14,9 +14,5 @@
             }
         });
 
-        $timeout(function(){
-            //seedBladeManager.expandLeftBlade();
-        });
     });
-
 })();

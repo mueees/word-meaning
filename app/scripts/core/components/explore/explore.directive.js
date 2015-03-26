@@ -16,6 +16,16 @@
                     $scope.onGetDefinition();
                 }, 200));
 
+                $scope.rememberWord = function () {
+                    $scope.word.status = 'remembered';
+                    WordResource.rememberById($scope.word.id);
+                };
+
+                $scope.forgetWord = function () {
+                    delete $scope.word.status;
+                    WordResource.forgetById($scope.word.id);
+                };
+
                 $scope.onGetDefinition = function () {
                     if ($scope.form.word) {
                         WordResource.getWord($scope.form.word).then(function (word) {
