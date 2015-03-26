@@ -1,10 +1,10 @@
 (function () {
     'use strict';
 
-    angular.module('seed.mobile.explore', [
+    angular.module('seed.mobile.definition.card', [
         'ui.router',
         'seed.mobile',
-        'seed.core.components.explore'
+        'seed.core.resource'
     ]);
 
 })();

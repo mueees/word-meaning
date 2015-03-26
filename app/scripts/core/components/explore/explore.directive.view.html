@@ -1,0 +1,19 @@
+<button class="btn btn-link btn-round btn-action-main" ng-if="word.definitions.length">
+    <svg class="svg-icon">
+        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
+    </svg>
+</button>
+
+<div class="card transparent narrow exploreWordContainer">
+    <form ng-submit="onGetDefinition()">
+        <input type="text" ng-model="form.word" class="wide exploreWord" placeholder="Explore word">
+    </form>
+</div>
+
+<seed-word-definition definition="definition" ng-repeat="definition in word.definitions"></seed-word-definition>
+
+<div ng-if="!word.definitions.length">
+    <div class="card">
+        No definitions
+    </div>
+</div>

@@ -83,6 +83,7 @@ module.exports = {
             'app/vendor/angular-growl-0.4.0/angular-growl.js',
             'app/vendor/angular-mocks-1.2.28/angular-mocks.js',
             'app/vendor/angular-sanitize/angular-sanitize.js',
+            'app/vendor/angular-local-storage/angular-local-storage.js',
             'app/vendor/angular-touch/angular-touch.min.js',
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             /*'app/vendor/angular-animate/angular-animate.min.js',*/

@@ -1,10 +1,10 @@
 (function(){
     'use strict';
 
-    console.log('resource')
-
     angular.module('seed.core.resource', [
-        'restangular'
+        'restangular',
+        'seed.core.cache',
+        'seed.core.utils'
     ]);
 
 })();
