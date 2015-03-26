@@ -12,10 +12,6 @@
                 $scope.form = {};
                 $scope.word = {};
 
-                /*$scope.$watch('form.word', function () {
-                    $scope.onGetDefinition();
-                });*/
-
                 $scope.$watch('form.word', _.debounce(function () {
                     $scope.onGetDefinition();
                 }, 200));

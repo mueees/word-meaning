@@ -1,6 +1,12 @@
-<button class="btn btn-link btn-round btn-action-main" ng-if="word.definitions.length">
+<button ng-click="saveWord" class="btn btn-link btn-round btn-color-action btn-action-position-main" ng-if="word.definitions.length && (!word.status || word.status == 'new')">
     <svg class="svg-icon">
         <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
+    </svg>
+</button>
+
+<button class="btn btn-success btn-round btn-action-position-main btn-color-success" ng-if="word.definitions.length && word.status == 'saved'">
+    <svg class="svg-icon" >
+        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-check52"></use>
     </svg>
 </button>
 
