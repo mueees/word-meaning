@@ -14,6 +14,11 @@
     <form ng-submit="onGetDefinition()">
         <input type="text" ng-model="form.word" class="wide exploreWord" placeholder="Explore word">
     </form>
+    <button ng-click="clearWord()" class="btn btn-round btn-color-default clearWord" ng-if="form.word">
+        <svg class="svg-icon">
+            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-close47"></use>
+        </svg>
+    </button>
 </div>
 
 <seed-word-definition definition="definition" ng-repeat="definition in word.definitions"></seed-word-definition>

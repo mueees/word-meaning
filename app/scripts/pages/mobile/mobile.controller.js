@@ -16,7 +16,7 @@
                         sref: 'mobile.list',
                         text: 'List',
                         icon: 'assets/svg/symbol/svg-sprite.svg#svg-icon-list89'
-                    },
+                    }/*,
                     {
                         sref: 'mobile.card',
                         text: 'Card',
@@ -26,7 +26,7 @@
                         sref: 'mobile.recent',
                         text: 'Recent',
                         icon: 'assets/svg/symbol/svg-sprite.svg#svg-icon-google132'
-                    }
+                    }*/
                 ]
             }
         });

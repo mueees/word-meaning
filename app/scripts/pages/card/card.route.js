@@ -5,8 +5,12 @@
         $stateProvider
             .state('mobile.card', {
                 url: '/card',
-                templateUrl: 'app/scripts/pages/card/card.view.html',
-                controller: "CardController"
+                views: {
+                    content: {
+                        templateUrl: 'app/scripts/pages/card/card.view.html',
+                        controller: "CardController"
+                    }
+                }
             });
     });
 

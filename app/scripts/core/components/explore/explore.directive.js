@@ -9,6 +9,8 @@
                 definition: "="
             },
             link: function ($scope) {
+                var currentWord = null;
+
                 $scope.form = {};
                 $scope.word = {};
 
@@ -26,11 +28,18 @@
                     WordResource.forgetById($scope.word.id);
                 };
 
+                $scope.clearWord = function(){
+                    $scope.form = {};
+                };
+
                 $scope.onGetDefinition = function () {
                     if ($scope.form.word) {
-                        WordResource.getWord($scope.form.word).then(function (word) {
-                            $scope.word = word;
-                        });
+                        if($scope.form.word != currentWord){
+                            currentWord = $scope.form.word;
+                            WordResource.getWord($scope.form.word).then(function (word) {
+                                $scope.word = word;
+                            });
+                        }
                     } else {
                         $scope.word = {};
                         $scope.$digest();
