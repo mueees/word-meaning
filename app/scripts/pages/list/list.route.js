@@ -5,8 +5,16 @@
         $stateProvider
             .state('mobile.list', {
                 url: '/list',
-                templateUrl: 'app/scripts/pages/list/list.view.html',
-                controller: "ListController"
+                views: {
+                    header: {
+                        templateUrl: "app/scripts/core/header/header.view.html",
+                        controller: "HeaderListController"
+                    },
+                    content: {
+                        templateUrl: 'app/scripts/pages/list/list.view.html',
+                            controller: "ListController"
+                    }
+                }
             });
     });
 

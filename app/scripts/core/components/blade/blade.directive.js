@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('seed.core.components.blade').directive('seedBlade', function ($templateCache, $compile, $rootScope) {
+    angular.module('seed.core.components.blade').directive('seedBlade', function ($templateCache, $compile, $rootScope, $timeout) {
         return {
             restrict: "E",
             replace: false,
@@ -9,11 +9,19 @@
                 seedConfig: "="
             },
             link: function ($scope, element) {
+                var currentTemplateUrl = null;
+
+                $scope.overlayHandler = function () {
+                    $scope.expanded = false;
+                };
+
                 $scope.$watch('seedConfig', function (seedConfig) {
                     var html,
                         scope;
 
-                    if(seedConfig && seedConfig.templateUrl){
+                    if(seedConfig && seedConfig.templateUrl && currentTemplateUrl != seedConfig.templateUrl){
+                        currentTemplateUrl = seedConfig.templateUrl;
+
                         element.find('div').html('');
 
                         html = $templateCache.get(seedConfig.templateUrl);
@@ -24,13 +32,15 @@
                         element.find('div').append(html);
                     }
 
-                    if(seedConfig.expanded != $scope.expanded){
-                        $scope.expanded = seedConfig.expanded;
-                    }
+                    $scope.expanded = seedConfig.expanded;
 
                     if(seedConfig.position){
                         $scope.position = seedConfig.position;
                     }
+                });
+
+                $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl){
+                    $scope.expanded = false;
                 });
             }
         };

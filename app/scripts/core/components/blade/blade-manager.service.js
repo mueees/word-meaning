@@ -13,19 +13,15 @@
         };
 
         function expandLeftBlade(){
-            if(!$rootScope._leftBladeConfig.expanded){
-                var config = angular.copy($rootScope._leftBladeConfig);
-                config.expanded = true;
-                $rootScope._leftBladeConfig = config;
-            }
+            var config = angular.copy($rootScope._leftBladeConfig);
+            config.expanded = true;
+            $rootScope._leftBladeConfig = config;
         }
 
         function collapseLeftBlade(){
-            if($rootScope._leftBladeConfig.expanded){
-                var config = angular.copy($rootScope._leftBladeConfig);
-                config.expanded = false;
-                $rootScope._leftBladeConfig = config;
-            }
+            var config = angular.copy($rootScope._leftBladeConfig);
+            config.expanded = false;
+            $rootScope._leftBladeConfig = config;
         }
 
         return {
@@ -36,7 +32,7 @@
             },
 
             setLeftConfig: function (config) {
-                if(config != $rootScope._leftBladeConfig){
+                if(config.templateUrl != $rootScope._leftBladeConfig){
                     config.position = 'left';
                     $rootScope._leftBladeConfig = config;
                 }

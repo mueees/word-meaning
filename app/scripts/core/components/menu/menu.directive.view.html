@@ -1,35 +1,10 @@
 <ul>
-    <li>
-        <a href="#">
+    <li ng-repeat="item in items">
+        <a ng-class="{active: selected == item}" ui-sref="{{item.sref}}" ng-click="onClickHandler(item)">
             <svg class="svg-icon">
-                <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-search100"></use>
+                <use xlink:href="{{item.icon}}"></use>
             </svg>
-            Search
+            {{item.text}}
         </a>
     </li>
-    <li>
-        <a href="#">
-            <svg class="svg-icon">
-                <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-list89"></use>
-            </svg>
-            List
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <svg class="svg-icon">
-                <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-google126"></use>
-            </svg>
-            Card
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <svg class="svg-icon">
-                <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-google132"></use>
-            </svg>
-            Recent
-        </a>
-    </li>
-
 </ul>

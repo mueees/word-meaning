@@ -1,14 +1,3 @@
-<header class="mainHeader">
-    <button class="btn btn-link switchBlade" ng-click="switchLeftBlade()">
-        <svg class="svg-icon">
-            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-menu55"></use>
-        </svg>
-    </button>
-    <div class="title">
-        Remembered list
-    </div>
-</header>
-
 <ul ng-if="words.length">
     <li ng-repeat="word in words">
         <seed-word-list-item word="word"></seed-word-list-item>

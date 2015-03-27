@@ -11,6 +11,12 @@
             link: function ($scope) {
                 var config = $scope.seedConfig;
                 $scope.items = config.items;
+
+                $scope.selected = null;
+
+                $scope.onClickHandler = function (item) {
+                    $scope.selected = item;
+                }
             }
         };
     });
