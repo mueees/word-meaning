@@ -4,9 +4,12 @@
     </svg>
 </button>
 
-<button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success" ng-if="word.definitions.length && word.status == 'remembered'">
-    <svg class="svg-icon" >
+<button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success btn-anim" ng-if="word.definitions.length && word.status == 'remembered'">
+    <svg class="svg-icon state1">
         <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-check52"></use>
+    </svg>
+    <svg class="svg-icon state2">
+        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
     </svg>
 </button>
 
