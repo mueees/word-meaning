@@ -1,7 +1,23 @@
 (function(){
     'use strict';
 
-    angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope) {
+    angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope, $swipe) {
+        var swipe;
+
+        $swipe.bind(angular.element(document), {
+            start: function (obj) {
+
+            },
+            end:function (obj) {
+                expandLeftBlade();
+            },
+            move: function () {
+                
+            },
+            cancel: function () {
+                
+            }
+        });
 
         $rootScope._leftBladeConfig = {
             expanded: true,
