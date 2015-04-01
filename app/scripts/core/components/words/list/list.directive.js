@@ -14,6 +14,8 @@
                 $scope.toggleDefinition = function () {
                     $scope.showDefinition = !$scope.showDefinition;
                 }
+
+
             }
         };
     });

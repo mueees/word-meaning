@@ -1,6 +1,8 @@
 <ul ng-if="words.length">
     <li ng-repeat="word in words">
-        <seed-word-list-item word="word"></seed-word-list-item>
+        <seed-swipe-card on-card-swipe="deleteWord(word, $index)">
+            <seed-word-list-item word="word"></seed-word-list-item>
+        </seed-swipe-card>
     </li>
 </ul>
 

@@ -1,16 +1,22 @@
-<button ng-click="rememberWord()" class="btn btn-link btn-round btn-color-action btn-action-position-main" ng-if="word.definitions.length && (!word.status || word.status == 'new')">
+<button ng-click="rememberWord()" class="btn btn-link btn-round btn-color-action btn-action-position-main"
+        ng-if="word.definitions.length && (!word.status || word.status == 'new')">
     <svg class="svg-icon">
         <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
     </svg>
 </button>
 
-<button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success btn-anim" ng-if="word.definitions.length && word.status == 'remembered'">
-    <svg class="svg-icon state1">
-        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-check52"></use>
-    </svg>
-    <svg class="svg-icon state2">
-        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
-    </svg>
+<button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success"
+        ng-if="word.definitions.length && word.status == 'remembered'">
+    <div class="state1">
+        <svg class="svg-icon">
+            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-check52"></use>
+        </svg>
+    </div>
+    <div class="state2">
+        <svg class="svg-icon">
+            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
+        </svg>
+    </div>
 </button>
 
 <div class="card transparent narrow exploreWordContainer">

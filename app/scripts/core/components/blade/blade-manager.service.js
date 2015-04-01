@@ -2,14 +2,12 @@
     'use strict';
 
     angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope, $swipe) {
-        var swipe;
-
         $swipe.bind(angular.element(document), {
             start: function (obj) {
 
             },
             end:function (obj) {
-                expandLeftBlade();
+                //expandLeftBlade();
             },
             move: function () {
                 

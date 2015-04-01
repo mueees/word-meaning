@@ -5,7 +5,8 @@
         'ui.router',
         'seed.mobile',
         'seed.core.resource',
-        'seed.core.components.words'
+        'seed.core.components.words',
+        'seed.core.components.cards'
     ]);
 
 })();
