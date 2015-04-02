@@ -1,11 +1,16 @@
-- open menu by swipe
++ open menu by swipe
 + remove from remembered list
++ generate cordova mobile code
++ get google play account
+
 - add recent list
     - add/remove word to remembered list
-- add animation for button
-- generate cordova mobile code
-- get google play account
-
+- add random card screen
+- guess word by definitions
+- add another color theme
+- update seed-angular project
+- define logo and restyle blade menu
+- publish to google play
 
 Cordova commands
 
