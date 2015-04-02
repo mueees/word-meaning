@@ -35,8 +35,10 @@
                 $scope.onGetDefinition = function () {
                     if ($scope.form.word) {
                         if($scope.form.word != currentWord){
+                            $scope.loading = true;
                             currentWord = $scope.form.word;
                             WordResource.getWord($scope.form.word).then(function (word) {
+                                $scope.loading = false;
                                 $scope.word = word;
                             });
                         }

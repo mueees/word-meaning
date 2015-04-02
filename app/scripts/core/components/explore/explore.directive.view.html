@@ -3,6 +3,7 @@
     <svg class="svg-icon">
         <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
     </svg>
+    <i class="icon-add186"></i>
 </button>
 
 <button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success"
@@ -21,6 +22,12 @@
             <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-close47"></use>
         </svg>
     </button>
+</div>
+
+<div ng-if="loading">
+    <div class="card">
+        Loading ...
+    </div>
 </div>
 
 <seed-word-definition definition="definition" ng-repeat="definition in word.definitions"></seed-word-definition>

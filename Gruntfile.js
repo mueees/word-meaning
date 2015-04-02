@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-svg-sprite');
     grunt.loadNpmTasks('grunt-spritesmith');
+    grunt.loadNpmTasks('grunt-image-resize');
 
     // Uses to change the root name oldPrefix of a long folder name to newPrefix
     var changeRootFolder = function (names, oldPrefix, newPrefix) {
@@ -342,7 +343,7 @@ module.exports = function (grunt) {
             },
             assets: {
                 files: ['app/assets/**'],
-                tasks: ['clean:assets_build', 'copy:app_assets', 'copy:vendor_css', 'copy:vendor_fonts', 'svg_sprite:dev', 'sprite:dev', 'stylus:dev', 'htmlbuild:dev']
+                tasks: ['clean:assets_build', 'copy:app_assets', 'copy:vendor_css', 'copy:vendor_fonts', 'svg_sprite:dev', 'image_resize:resize', 'sprite:dev', 'stylus:dev', 'htmlbuild:dev']
             },
             stylus: {
                 files: ['app/**/*.styl'],
@@ -398,7 +399,7 @@ module.exports = function (grunt) {
                     shape: {
                         id: {
                             generator: function (path) {
-                                var array = path.split('/');
+                                var array = path.split('\\');
                                 var fileName = array[array.length - 1];
                                 var fileNameArray = fileName.split('.');
                                 return 'svg-icon-' + fileNameArray[0];
@@ -415,6 +416,18 @@ module.exports = function (grunt) {
                 dest: '<%= build_dir %>/app/assets/img/sprite.png',
                 destCss: '<%= build_dir %>/app/assets/css/sprite.css'
             }
+        },
+        image_resize: {
+            resize: {
+                options: {
+                    width: 32,
+                    height: 32,
+                    overwrite: true,
+                    crop: true
+                },
+                src: 'app/source/icon-source/*.png',
+                dest: 'app/source/icon/'
+            }
         }
     };
 
@@ -428,6 +441,7 @@ module.exports = function (grunt) {
         'copy:app_js',
         'copy:app_assets',
         'svg_sprite:dev',
+        'image_resize:resize',
         'sprite:dev',
         'stylus:dev',
 

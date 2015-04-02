@@ -1,4 +1,4 @@
-<ul ng-if="words.length">
+<ul class="overflow" ng-if="words.length">
     <li ng-repeat="word in words">
         <seed-swipe-card on-card-swipe="deleteWord(word, $index)">
             <seed-word-list-item word="word"></seed-word-list-item>

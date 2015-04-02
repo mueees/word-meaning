@@ -13,8 +13,17 @@
 
                 this.el = opts.el;
 
-                this.minDistance = opts.minDistance || angular.element(document.body).width()/3;
+                //min distance, that user should swipe for event
+                this.minDistance = opts.minDistance || this.el.clientWidth / 2;
+
+                //max distance, which user can swipe element
                 this.maxDistance = opts.maxDistance;
+
+                //threshold that determinate this X or Y swipe
+                this.threshold = 10;
+
+                //determinate X or Y direction
+                this.direction = null;
 
                 if (this.maxDistance && this.maxDistance < this.minDistance) {
                     this.maxDistance = this.minDistance * 1.2;
@@ -57,21 +66,28 @@
                 e.seedPrevent = true;
                 var evt = this._clearEvent(e);
                 this.startX = evt.x;
+                this.startY = evt.y;
             },
 
             _doDrag: function (e) {
                 var evt = this._clearEvent(e);
 
-                if (this.startX && Math.abs(this.startX) > 10) {
-                    this.x = evt.x - this.startX;
-                    this.y = 0;
+                this.x = evt.x - this.startX;
+                this.y = evt.x - this.startY;
 
+                if (!this.direction) {
+                    if (Math.abs(this.x) > this.threshold) {
+                        this.direction = 'x';
+                    } else if (Math.abs(this.y) > this.threshold) {
+                        this.direction = 'y';
+                    }
+                } else if (this.direction && this.direction == 'x') {
                     if (this.maxDistance) {
                         if (Math.abs(this.x) < this.maxDistance) {
-                            this._setTransform(this.x, this.y);
+                            this._setTransform(this.x, 0);
                         }
                     } else {
-                        this._setTransform(this.x, this.y);
+                        this._setTransform(this.x, 0);
                     }
 
                     this.el.style['opacity'] = this._getOpacity();
@@ -79,18 +95,18 @@
             },
 
             _doDragEnd: function (e) {
-                e.stopPropagation();
-                if (this.startX) {
+                if (this.direction == 'x') {
                     if (Math.abs(this.x) > this.minDistance) {
                         this.onDrag();
                     } else {
                         this._setTransform(0, 0);
                         this.el.style['opacity'] = 1;
                     }
-
-                    delete this.startX;
-                    this.x = this.y = 0;
                 }
+
+                delete this.startX;
+                delete this.direction;
+                this.x = this.y = 0;
             },
 
             _getOpacity: function () {

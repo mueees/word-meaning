@@ -24,6 +24,7 @@
         "grunt-html-build": "^0.3.2",
         "grunt-svg-sprite": "1.0.19",
         "grunt-spritesmith": "4.2.0",
+        "grunt-image-resize": "1.0.0",
 
         "karma": "^0.12.9",
         "grunt-karma": "^0.8.2",
