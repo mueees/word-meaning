@@ -5,3 +5,12 @@
 - add animation for button
 - generate cordova mobile code
 - get google play account
+
+
+Cordova commands
+
+Prepare cordova project
+-----------------------
+cordova create mobile com.word-meaning.com WordMeaning
+cordova platform add android
+cordova run android

@@ -1,0 +1,406 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+[class^='icon-'] {
+  display: inline-block;
+}
+[class^='svg-icon'] {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+seed-blade {
+  display: block;
+}
+seed-blade .content {
+  background: #37474f;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  -webkit-transition: transform 2s ease-in;
+  -moz-transition: transform 2s ease-in;
+  -o-transition: transform 2s ease-in;
+  transition: transform 2s ease-in;
+  z-index: 20;
+}
+seed-blade .content.left.expanded {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+seed-blade .content.left.collapsed {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+seed-menu {
+  display: block;
+}
+seed-menu a {
+  display: block;
+  padding: 15px;
+  position: relative;
+  padding-left: 80px;
+  color: #fff;
+}
+seed-menu a.active,
+seed-menu a:active,
+seed-menu a:focus {
+  text-decoration: none;
+  color: #fff;
+  background: #ef6c00;
+}
+seed-menu a .svg-icon {
+  fill: #fff;
+  position: absolute;
+  top: 8px;
+  left: 25px;
+}
+.card {
+  background: #eceff1;
+  margin: 10px 10px 10px 10px;
+  box-sizing: content-box;
+  padding: 10px;
+}
+.card.transparent {
+  background: none;
+}
+.card.narrow {
+  padding-left: 0;
+  padding-right: 0;
+}
+input.wide {
+  border: 0;
+  padding: 20px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+input.wide:focus {
+  outline: none;
+  border: none;
+}
+.btn svg,
+.btn span {
+  vertical-align: middle;
+  color: #37474f;
+  fill: #37474f;
+}
+.btn.btn-accent {
+  background: #ef6c00;
+  fill: #fff;
+  color: #fff;
+}
+.btn.btn-accent svg,
+.btn.btn-accent span {
+  vertical-align: middle;
+}
+.btn.btn-round {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+.btn.btn-round svg {
+  fill: #fff;
+}
+.btn.btn-link {
+  outline: 0;
+  border: 0;
+}
+.btn.btn-link:focus {
+  outline: 0;
+  border: 0;
+}
+.btn-color-action {
+  background: #ef6c00;
+  fill: #fff;
+}
+.btn-color-action:hover,
+.btn-color-action:active,
+.btn-color-action:focus {
+  background: #ef6c00;
+  fill: #fff;
+}
+.btn-color-default {
+  background: #37474f;
+  fill: #fff;
+}
+.btn-color-default:hover,
+.btn-color-default:active,
+.btn-color-default:focus {
+  background: #263238;
+  fill: #fff;
+}
+.btn-color-success {
+  background: #36ae47;
+  fill: #fff;
+}
+.btn-color-success:hover,
+.btn-color-success:active,
+.btn-color-success:focus {
+  background: #36ae47;
+  fill: #fff;
+}
+.btn-action-position-main {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
+.btn-full-width button {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+.overlay {
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 15;
+  opacity: 0.3;
+}
+.word-list-item {
+  padding: 0;
+  margin: 5px 10px;
+}
+.word-list-item .content {
+  overflow: hidden;
+  position: relative;
+}
+.word-list-item .content .toCard {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  fill: #ef6c00;
+}
+.word-list-item .content .arrow {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+  fill: #37474f;
+}
+.word-list-item .definitions {
+  padding: 15px 15px 10px;
+}
+.word-list-item .definitions .definition {
+  padding: 5px;
+  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 5px;
+}
+.word-list-item .definitions .definition:last-child {
+  border-bottom: none;
+}
+.word-list-item .word {
+  color: #263238;
+  padding-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 14px;
+}
+.word-list-item .letter {
+  float: left;
+  height: 50px;
+  background: #ef6c00;
+  width: 50px;
+  text-align: center;
+  font-size: 38px;
+  line-height: 45px;
+  color: #fff;
+}
+.word-card-item .word {
+  font-size: 30px;
+  line-height: 36x;
+  padding: 10px;
+  margin: 25px 0 20px 5px;
+  color: #fff;
+  display: inline-block;
+}
+.word-card-item .itemHeader {
+  background: #263238;
+}
+.word-card-item .closeCard {
+  float: left;
+}
+.word-card-item .closeCard svg {
+  fill: #fff;
+}
+.word-definition .meta {
+  margin-top: 5px;
+}
+.word-definition .attribution {
+  width: 80%;
+  color: #7f7f7f;
+  font-size: 12px;
+  line-height: 14px;
+}
+seed-swipe-card {
+  display: block;
+  cursor: pointer;
+}
+seed-explore {
+  display: block;
+}
+seed-explore .exploreWord {
+  font-size: 20px;
+}
+seed-explore .exploreWordContainer {
+  border-bottom: 1px solid #eceff1;
+  margin-top: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+seed-explore .btn.clearWord {
+  position: absolute;
+  right: 10px;
+  top: 27px;
+  height: 35px;
+  width: 35px;
+}
+seed-explore .btn.clearWord svg {
+  width: 25px;
+}
+.mainHeader {
+  background: #263238;
+  color: #eceff1;
+  min-height: 50px;
+}
+.mainHeader .title {
+  display: inline-block;
+  padding: 0 15px;
+}
+.mainHeader .switchBlade svg {
+  fill: #eceff1;
+}
+body {
+  background: #fff;
+  font-size: 14px;
+  line-height: 18px;
+color
+}
