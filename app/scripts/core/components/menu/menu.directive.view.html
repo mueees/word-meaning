@@ -1,10 +1,8 @@
 <ul>
     <li ng-repeat="item in items">
         <a ng-class="{active: selected == item}" ui-sref="{{item.sref}}" ng-click="onClickHandler(item)">
-            <svg class="svg-icon">
-                <use xlink:href="{{item.icon}}"></use>
-            </svg>
-            {{item.text}}
+            <i class="fa fa-{{item.icon}} fa-lg"></i>
+            <span>{{item.text}}</span>
         </a>
     </li>
 </ul>

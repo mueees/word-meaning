@@ -119,8 +119,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.overflow {
+  overflow: hidden;
+}
 [class^='icon-'] {
   display: inline-block;
+  width: 32px;
+  height: 32px;
 }
 [class^='svg-icon'] {
   display: inline-block;
@@ -136,24 +141,29 @@ seed-blade .content {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 80%;
-  -webkit-transition: transform 2s ease-in;
-  -moz-transition: transform 2s ease-in;
-  -o-transition: transform 2s ease-in;
-  transition: transform 2s ease-in;
+  width: 250px;
   z-index: 20;
+  -webkit-transform: translate3d(-80%, 0, 0);
+  -moz-transform: translate3d(-80%, 0, 0);
+  -o-transform: translate3d(-80%, 0, 0);
+  transform: translate3d(-80%, 0, 0);
+  -webkit-transition: transform 0.25s ease-in-out;
+  -moz-transition: transform 0.25s ease-in-out;
+  -o-transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
 }
 seed-blade .content.left.expanded {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 seed-blade .content.left.collapsed {
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 seed-menu {
   display: block;
@@ -162,7 +172,11 @@ seed-menu a {
   display: block;
   padding: 15px;
   position: relative;
-  padding-left: 80px;
+  padding-left: 60px;
+  color: #fff;
+}
+seed-menu a:hover {
+  text-decoration: none;
   color: #fff;
 }
 seed-menu a.active,
@@ -172,10 +186,10 @@ seed-menu a:focus {
   color: #fff;
   background: #ef6c00;
 }
-seed-menu a .svg-icon {
+seed-menu a .fa {
   fill: #fff;
   position: absolute;
-  top: 8px;
+  top: 19px;
   left: 25px;
 }
 .card {
@@ -200,6 +214,10 @@ input.wide {
 input.wide:focus {
   outline: none;
   border: none;
+}
+.btn:hover {
+  outline: none;
+  border-color: transparent;
 }
 .btn svg,
 .btn span {
@@ -239,32 +257,38 @@ input.wide:focus {
 .btn-color-action {
   background: #ef6c00;
   fill: #fff;
+  color: #fff;
 }
 .btn-color-action:hover,
 .btn-color-action:active,
 .btn-color-action:focus {
   background: #ef6c00;
   fill: #fff;
+  color: #fff;
 }
 .btn-color-default {
   background: #37474f;
   fill: #fff;
+  color: #fff;
 }
 .btn-color-default:hover,
 .btn-color-default:active,
 .btn-color-default:focus {
   background: #263238;
   fill: #fff;
+  color: #fff;
 }
 .btn-color-success {
   background: #36ae47;
   fill: #fff;
+  color: #fff;
 }
 .btn-color-success:hover,
 .btn-color-success:active,
 .btn-color-success:focus {
   background: #36ae47;
   fill: #fff;
+  color: #fff;
 }
 .btn-action-position-main {
   position: fixed;
@@ -302,9 +326,9 @@ input.wide:focus {
 }
 .word-list-item .content .arrow {
   position: absolute;
-  right: 50px;
-  top: 10px;
-  fill: #37474f;
+  right: 18px;
+  top: 18px;
+  color: #37474f;
 }
 .word-list-item .definitions {
   padding: 15px 15px 10px;
@@ -336,7 +360,7 @@ input.wide:focus {
 }
 .word-card-item .word {
   font-size: 30px;
-  line-height: 36x;
+  line-height: 36px;
   padding: 10px;
   margin: 25px 0 20px 5px;
   color: #fff;
@@ -390,17 +414,20 @@ seed-explore .btn.clearWord svg {
   background: #263238;
   color: #eceff1;
   min-height: 50px;
+  padding-top: 5px;
 }
 .mainHeader .title {
   display: inline-block;
   padding: 0 15px;
+  font-size: 20px;
+  margin-top: 10px;
 }
-.mainHeader .switchBlade svg {
-  fill: #eceff1;
+.mainHeader .switchBlade {
+  color: #eceff1;
+  float: left;
 }
 body {
   background: #fff;
   font-size: 14px;
   line-height: 18px;
-color
 }

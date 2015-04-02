@@ -1,16 +1,11 @@
 <button ng-click="rememberWord()" class="btn btn-link btn-round btn-color-action btn-action-position-main"
         ng-if="word.definitions.length && (!word.status || word.status == 'new')">
-    <svg class="svg-icon">
-        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-add186"></use>
-    </svg>
-    <i class="icon-add186"></i>
+    <i class="fa fa-plus fa-2x"></i>
 </button>
 
 <button ng-click="forgetWord()" class="btn btn-success btn-round btn-action-position-main btn-color-success"
         ng-if="word.definitions.length && word.status == 'remembered'">
-    <svg class="svg-icon">
-        <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-check52"></use>
-    </svg>
+    <i class="fa fa-check fa-2x"></i>
 </button>
 
 <div class="card transparent narrow exploreWordContainer">
@@ -18,9 +13,7 @@
         <input type="text" ng-model="form.word" class="wide exploreWord" placeholder="Explore word">
     </form>
     <button ng-click="clearWord()" class="btn btn-round btn-color-default clearWord" ng-if="form.word">
-        <svg class="svg-icon">
-            <use xlink:href="assets/svg/symbol/svg-sprite.svg#svg-icon-close47"></use>
-        </svg>
+        <i class="fa fa-close fa-1x"></i>
     </button>
 </div>
 

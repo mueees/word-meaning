@@ -39,7 +39,10 @@
                             currentWord = $scope.form.word;
                             WordResource.getWord($scope.form.word).then(function (word) {
                                 $scope.loading = false;
-                                $scope.word = word;
+
+                                if($scope.form.word == word.word){
+                                    $scope.word = word;
+                                }
                             });
                         }
                     } else {

@@ -92,10 +92,12 @@ module.exports = {
         ],
         css: [
             'app/vendor/bootstrap/dist/css/bootstrap.css',
-            'app/vendor/angular-busy/angular-busy.css'
+            'app/vendor/angular-busy/angular-busy.css',
+            'app/vendor/font-awesome-4.3.0/css/font-awesome.css'
         ],
         fonts: [
-            'app/vendor/bootstrap/fonts/*'
+            'app/vendor/bootstrap/fonts/*',
+            'app/vendor/font-awesome-4.3.0/fonts/*'
         ],
         assets: []
     }

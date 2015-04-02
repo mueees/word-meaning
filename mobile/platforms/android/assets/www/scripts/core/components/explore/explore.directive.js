@@ -35,9 +35,14 @@
                 $scope.onGetDefinition = function () {
                     if ($scope.form.word) {
                         if($scope.form.word != currentWord){
+                            $scope.loading = true;
                             currentWord = $scope.form.word;
                             WordResource.getWord($scope.form.word).then(function (word) {
-                                $scope.word = word;
+                                $scope.loading = false;
+
+                                if($scope.form.word == word.word){
+                                    $scope.word = word;
+                                }
                             });
                         }
                     } else {

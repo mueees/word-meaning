@@ -10,12 +10,12 @@
                     {
                         sref: 'mobile.explore',
                         text: 'Explore',
-                        icon: 'assets/svg/symbol/svg-sprite.svg#svg-icon-search100'
+                        icon: 'key'
                     },
                     {
                         sref: 'mobile.list',
                         text: 'List',
-                        icon: 'assets/svg/symbol/svg-sprite.svg#svg-icon-list89'
+                        icon: 'list-ul'
                     }/*,
                     {
                         sref: 'mobile.card',

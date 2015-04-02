@@ -10,16 +10,12 @@ angular.module("app/scripts/core/components/explore/explore.directive.view.html"
   $templateCache.put("app/scripts/core/components/explore/explore.directive.view.html",
     "<button ng-click=\"rememberWord()\" class=\"btn btn-link btn-round btn-color-action btn-action-position-main\"\n" +
     "        ng-if=\"word.definitions.length && (!word.status || word.status == 'new')\">\n" +
-    "    <svg class=\"svg-icon\">\n" +
-    "        <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-add186\"></use>\n" +
-    "    </svg>\n" +
+    "    <i class=\"fa fa-plus fa-2x\"></i>\n" +
     "</button>\n" +
     "\n" +
     "<button ng-click=\"forgetWord()\" class=\"btn btn-success btn-round btn-action-position-main btn-color-success\"\n" +
     "        ng-if=\"word.definitions.length && word.status == 'remembered'\">\n" +
-    "    <svg class=\"svg-icon\">\n" +
-    "        <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-check52\"></use>\n" +
-    "    </svg>\n" +
+    "    <i class=\"fa fa-check fa-2x\"></i>\n" +
     "</button>\n" +
     "\n" +
     "<div class=\"card transparent narrow exploreWordContainer\">\n" +
@@ -27,10 +23,14 @@ angular.module("app/scripts/core/components/explore/explore.directive.view.html"
     "        <input type=\"text\" ng-model=\"form.word\" class=\"wide exploreWord\" placeholder=\"Explore word\">\n" +
     "    </form>\n" +
     "    <button ng-click=\"clearWord()\" class=\"btn btn-round btn-color-default clearWord\" ng-if=\"form.word\">\n" +
-    "        <svg class=\"svg-icon\">\n" +
-    "            <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-close47\"></use>\n" +
-    "        </svg>\n" +
+    "        <i class=\"fa fa-close fa-1x\"></i>\n" +
     "    </button>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div ng-if=\"loading\">\n" +
+    "    <div class=\"card\">\n" +
+    "        Loading ...\n" +
+    "    </div>\n" +
     "</div>\n" +
     "\n" +
     "<seed-word-definition definition=\"definition\" ng-repeat=\"definition in word.definitions\"></seed-word-definition>\n" +
@@ -47,10 +47,8 @@ angular.module("app/scripts/core/components/menu/menu.directive.view.html", []).
     "<ul>\n" +
     "    <li ng-repeat=\"item in items\">\n" +
     "        <a ng-class=\"{active: selected == item}\" ui-sref=\"{{item.sref}}\" ng-click=\"onClickHandler(item)\">\n" +
-    "            <svg class=\"svg-icon\">\n" +
-    "                <use xlink:href=\"{{item.icon}}\"></use>\n" +
-    "            </svg>\n" +
-    "            {{item.text}}\n" +
+    "            <i class=\"fa fa-{{item.icon}} fa-lg\"></i>\n" +
+    "            <span>{{item.text}}</span>\n" +
     "        </a>\n" +
     "    </li>\n" +
     "</ul>");
@@ -73,19 +71,8 @@ angular.module("app/scripts/core/components/words/list/list.directive.view.html"
     "        <span class=\"letter\">{{firstLetter}}</span>\n" +
     "        <span class=\"word\">{{word.word}}</span>\n" +
     "\n" +
-    "        <svg class=\"svg-icon arrow \" ng-if=\"!showDefinition\">\n" +
-    "            <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-expand38\"></use>\n" +
-    "        </svg>\n" +
-    "\n" +
-    "        <svg class=\"svg-icon arrow \" ng-if=\"showDefinition\">\n" +
-    "            <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-expand39\"></use>\n" +
-    "        </svg>\n" +
-    "\n" +
-    "        <!--<button class=\"btn btn-link toCard\">\n" +
-    "            <svg class=\"svg-icon \">\n" +
-    "                <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-google126\"></use>\n" +
-    "            </svg>\n" +
-    "        </button>-->\n" +
+    "        <i class=\"fa fa-arrow-right fa-lg arrow\" ng-if=\"!showDefinition\"></i>\n" +
+    "        <i class=\"fa fa-arrow-down fa-lg arrow\" ng-if=\"showDefinition\"></i>\n" +
     "    </div>\n" +
     "    <div class=\"definitions\" ng-if=\"showDefinition\">\n" +
     "        <ul>\n" +
@@ -101,9 +88,7 @@ angular.module("app/scripts/core/header/header.view.html", []).run(["$templateCa
   $templateCache.put("app/scripts/core/header/header.view.html",
     "<header class=\"mainHeader\">\n" +
     "    <button class=\"btn btn-link switchBlade\" ng-click=\"switchLeftBlade()\">\n" +
-    "        <svg class=\"svg-icon\">\n" +
-    "            <use xlink:href=\"assets/svg/symbol/svg-sprite.svg#svg-icon-menu55\"></use>\n" +
-    "        </svg>\n" +
+    "        <i class=\"fa fa-navicon fa-2x\"></i>\n" +
     "    </button>\n" +
     "    <div class=\"title\">\n" +
     "        {{title}}\n" +
@@ -125,7 +110,7 @@ angular.module("app/scripts/pages/explore/explore.view.html", []).run(["$templat
 
 angular.module("app/scripts/pages/list/list.view.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/scripts/pages/list/list.view.html",
-    "<ul ng-if=\"words.length\">\n" +
+    "<ul class=\"overflow\" ng-if=\"words.length\">\n" +
     "    <li ng-repeat=\"word in words\">\n" +
     "        <seed-swipe-card on-card-swipe=\"deleteWord(word, $index)\">\n" +
     "            <seed-word-list-item word=\"word\"></seed-word-list-item>\n" +

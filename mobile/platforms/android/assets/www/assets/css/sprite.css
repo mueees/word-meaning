@@ -9,9 +9,87 @@ Icon classes can be used entirely standalone. They are named after their origina
 <img class="icon-home" />
 ```
 */
-.icon-test {
+.icon-add186-big {
   background-image: url(../img/sprite.png);
   background-position: 0px 0px;
-  width: 128px;
-  height: 128px;
+  width: 64px;
+  height: 64px;
+}
+.icon-bookmark46-big {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -128px;
+  width: 64px;
+  height: 64px;
+}
+.icon-check52-big {
+  background-image: url(../img/sprite.png);
+  background-position: -128px -64px;
+  width: 64px;
+  height: 64px;
+}
+.icon-close47-big {
+  background-image: url(../img/sprite.png);
+  background-position: -128px 0px;
+  width: 64px;
+  height: 64px;
+}
+.icon-expand38-big {
+  background-image: url(../img/sprite.png);
+  background-position: -64px -64px;
+  width: 64px;
+  height: 64px;
+}
+.icon-keyboard53-big {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -64px;
+  width: 64px;
+  height: 64px;
+}
+.icon-magic20-big {
+  background-image: url(../img/sprite.png);
+  background-position: -64px 0px;
+  width: 64px;
+  height: 64px;
+}
+.icon-add186-small {
+  background-image: url(../img/sprite.png);
+  background-position: -128px -160px;
+  width: 32px;
+  height: 32px;
+}
+.icon-bookmark46-small {
+  background-image: url(../img/sprite.png);
+  background-position: -64px -128px;
+  width: 32px;
+  height: 32px;
+}
+.icon-check52-small {
+  background-image: url(../img/sprite.png);
+  background-position: -96px -160px;
+  width: 32px;
+  height: 32px;
+}
+.icon-close47-small {
+  background-image: url(../img/sprite.png);
+  background-position: -64px -160px;
+  width: 32px;
+  height: 32px;
+}
+.icon-expand38-small {
+  background-image: url(../img/sprite.png);
+  background-position: -160px -128px;
+  width: 32px;
+  height: 32px;
+}
+.icon-keyboard53-small {
+  background-image: url(../img/sprite.png);
+  background-position: -128px -128px;
+  width: 32px;
+  height: 32px;
+}
+.icon-magic20-small {
+  background-image: url(../img/sprite.png);
+  background-position: -96px -128px;
+  width: 32px;
+  height: 32px;
 }

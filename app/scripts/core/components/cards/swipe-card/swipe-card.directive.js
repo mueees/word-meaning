@@ -20,7 +20,8 @@
                 this.maxDistance = opts.maxDistance;
 
                 //threshold that determinate this X or Y swipe
-                this.threshold = 10;
+                this.thresholdX = 15;
+                this.thresholdY = 50;
 
                 //determinate X or Y direction
                 this.direction = null;
@@ -65,32 +66,40 @@
             _doDragStart: function (e) {
                 e.seedPrevent = true;
                 var evt = this._clearEvent(e);
+
+                this.isRun = true;
                 this.startX = evt.x;
                 this.startY = evt.y;
             },
 
             _doDrag: function (e) {
-                var evt = this._clearEvent(e);
+                if(this.isRun){
+                    var evt = this._clearEvent(e);
 
-                this.x = evt.x - this.startX;
-                this.y = evt.x - this.startY;
+                    this.x = evt.x - this.startX;
+                    this.y = evt.x - this.startY;
 
-                if (!this.direction) {
-                    if (Math.abs(this.x) > this.threshold) {
-                        this.direction = 'x';
-                    } else if (Math.abs(this.y) > this.threshold) {
-                        this.direction = 'y';
-                    }
-                } else if (this.direction && this.direction == 'x') {
-                    if (this.maxDistance) {
-                        if (Math.abs(this.x) < this.maxDistance) {
-                            this._setTransform(this.x, 0);
+                    if (!this.direction) {
+                        if (Math.abs(this.x) > this.thresholdX) {
+                            this.direction = 'x';
+                        } else if (Math.abs(this.y) > this.thresholdY) {
+                            this.direction = 'y';
                         }
-                    } else {
-                        this._setTransform(this.x, 0);
-                    }
+                    } else if (this.direction && this.direction == 'x') {
 
-                    this.el.style['opacity'] = this._getOpacity();
+                        //slow X
+                        var x = this.x * 0.6;
+
+                        if (this.maxDistance) {
+                            if (Math.abs(this.x) < this.maxDistance) {
+                                this._setTransform(x, 0);
+                            }
+                        } else {
+                            this._setTransform(x, 0);
+                        }
+
+                        this.el.style['opacity'] = this._getOpacity();
+                    }
                 }
             },
 
@@ -107,6 +116,7 @@
                 delete this.startX;
                 delete this.direction;
                 this.x = this.y = 0;
+                this.isRun = false;
             },
 
             _getOpacity: function () {
@@ -116,7 +126,7 @@
                 if (x > this.minDistance) {
                     return 0.2;
                 } else {
-                    result = (this.minDistance - x) / this.minDistance;
+                    result = (this.minDistance - x)*1.2 / this.minDistance;
                     if (result < 0.2) result = 0.2
                 }
 

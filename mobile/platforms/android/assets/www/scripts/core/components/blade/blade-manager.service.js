@@ -13,7 +13,8 @@
 
                 _.bindAll(this, '_doDragStart', '_doDrag', '_doDragEnd');
 
-                this.minXDistance = opts.minXDistance || 30;
+                this.minStartXDistance = opts.minStartXDistance || 50;
+                this.minDistance = opts.minDistance || 50;
                 this.onOpedBlade = opts.onOpedBlade || angular.noop;
 
                 this._bindEvents();
@@ -55,13 +56,13 @@
             _doDrag: function (e) {
                 var evt = this._clearEvent(e);
 
-                if(this.startX && this.startX < this.minXDistance){
+                if(this.startX && this.startX < this.minStartXDistance){
                     this.x = evt.x - this.startX;
                 }
             },
 
             _doDragEnd: function () {
-                if(this.x){
+                if(this.x && Math.abs(this.x) > this.minDistance){
                     this.onOpedBlade();
                     this.startX = 0;
                     this.x = 0;
@@ -71,7 +72,9 @@
 
         new SwipeableBlade({
             onOpedBlade: function () {
-                expandLeftBlade();
+                $rootScope.$apply(function () {
+                    expandLeftBlade();
+                });
             }
         });
 
@@ -88,7 +91,6 @@
             var config = angular.copy($rootScope._leftBladeConfig);
             config.expanded = true;
             $rootScope._leftBladeConfig = config;
-            $rootScope.$digest();
         }
 
         function collapseLeftBlade(){

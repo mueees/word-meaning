@@ -343,7 +343,16 @@ module.exports = function (grunt) {
             },
             assets: {
                 files: ['app/assets/**'],
-                tasks: ['clean:assets_build', 'copy:app_assets', 'copy:vendor_css', 'copy:vendor_fonts', 'svg_sprite:dev', 'image_resize:resize', 'sprite:dev', 'stylus:dev', 'htmlbuild:dev']
+                tasks: ['clean:assets_build',
+                    'copy:app_assets',
+                    'copy:vendor_css',
+                    'copy:vendor_fonts',
+                    'svg_sprite:dev',
+                    'image_resize:resize_small',
+                    'image_resize:resize_big',
+                    'sprite:dev',
+                    'stylus:dev',
+                    'htmlbuild:dev']
             },
             stylus: {
                 files: ['app/**/*.styl'],
@@ -412,21 +421,40 @@ module.exports = function (grunt) {
         },
         sprite:{
             dev: {
-                src: 'app/source/icon/*.png',
+                src: [
+                    '<%= image_resize.resize_small.dest %>*.png',
+                    '<%= image_resize.resize_big.dest %>*.png'
+                ],
                 dest: '<%= build_dir %>/app/assets/img/sprite.png',
-                destCss: '<%= build_dir %>/app/assets/css/sprite.css'
+                destCss: '<%= build_dir %>/app/assets/css/sprite.css',
+                cssVarMap: function (sprite) {
+                    if(sprite.width == 32){
+                        sprite.name = sprite.name + '-small';
+                    }else if(sprite.width == 64){
+                        sprite.name = sprite.name + '-big';
+                    }
+                }
             }
         },
         image_resize: {
-            resize: {
+            resize_small: {
                 options: {
                     width: 32,
                     height: 32,
-                    overwrite: true,
-                    crop: true
+                    overwrite: true
                 },
                 src: 'app/source/icon-source/*.png',
-                dest: 'app/source/icon/'
+                dest: 'app/source/icon/small/'
+            },
+
+            resize_big: {
+                options: {
+                    width: 64,
+                    height: 64,
+                    overwrite: true
+                },
+                src: 'app/source/icon-source/*.png',
+                dest: 'app/source/icon/big/'
             }
         }
     };
@@ -441,7 +469,8 @@ module.exports = function (grunt) {
         'copy:app_js',
         'copy:app_assets',
         'svg_sprite:dev',
-        'image_resize:resize',
+        'image_resize:resize_small',
+        'image_resize:resize_big',
         'sprite:dev',
         'stylus:dev',
 
