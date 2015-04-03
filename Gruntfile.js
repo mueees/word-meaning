@@ -1,5 +1,4 @@
 module.exports = function (grunt) {
-
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -469,8 +468,8 @@ module.exports = function (grunt) {
         'copy:app_js',
         'copy:app_assets',
         'svg_sprite:dev',
-        'image_resize:resize_small',
-        'image_resize:resize_big',
+        /*'image_resize:resize_small',
+        'image_resize:resize_big',*/
         'sprite:dev',
         'stylus:dev',
 
@@ -508,6 +507,4 @@ module.exports = function (grunt) {
         grunt.task.run('development');
         grunt.task.run('watch');
     });
-
-
 };

@@ -1,10 +1,10 @@
-(function(){
+(function () {
     'use strict';
 
     angular.module('seed.core.components.blade').factory('seedBladeManager', function ($rootScope, $swipe) {
 
 
-        function SwipeableBlade(opts){
+        function SwipeableBlade(opts) {
             this.initialize(opts);
         }
 
@@ -16,6 +16,15 @@
                 this.minStartXDistance = opts.minStartXDistance || 50;
                 this.minDistance = opts.minDistance || 50;
                 this.onOpedBlade = opts.onOpedBlade || angular.noop;
+
+                //threshold that determinate this X or Y swipe
+                this.thresholdX = 20;
+                this.thresholdY = 120;
+
+                //determinate X or Y direction
+                this.direction = null;
+
+                this.x = this.y = 0;
 
                 this._bindEvents();
             },
@@ -47,26 +56,41 @@
             },
 
             _doDragStart: function (e) {
-                if(!e.seedPrevent){
+                if (!e.seedPrevent) {
                     var evt = this._clearEvent(e);
-                    this.startX = evt.x;
+
+                    if (evt.x < this.minStartXDistance) {
+                        this.isRun = true;
+                        this.startX = evt.x;
+                        this.startY = evt.y;
+                    }
                 }
             },
 
             _doDrag: function (e) {
-                var evt = this._clearEvent(e);
+                if (this.isRun) {
+                    var evt = this._clearEvent(e);
 
-                if(this.startX && this.startX < this.minStartXDistance){
                     this.x = evt.x - this.startX;
+                    this.y = evt.x - this.startY;
+
+                    if (!this.direction) {
+                        if (Math.abs(this.x) > this.thresholdX) {
+                            this.direction = 'x';
+                        } else if (Math.abs(this.y) > this.thresholdY) {
+                            this.direction = 'y';
+                        }
+                    }
                 }
             },
 
             _doDragEnd: function () {
-                if(this.x && Math.abs(this.x) > this.minDistance){
+                if (this.isRun && this.direction == 'x' && Math.abs(this.x) > this.minDistance) {
                     this.onOpedBlade();
-                    this.startX = 0;
-                    this.x = 0;
                 }
+
+                this.startY = this.startX = this.x = this.y = 0;
+                this.isRun = this.direction = false;
             }
         };
 
@@ -87,13 +111,13 @@
             expanded: false
         };
 
-        function expandLeftBlade(){
+        function expandLeftBlade() {
             var config = angular.copy($rootScope._leftBladeConfig);
             config.expanded = true;
             $rootScope._leftBladeConfig = config;
         }
 
-        function collapseLeftBlade(){
+        function collapseLeftBlade() {
             var config = angular.copy($rootScope._leftBladeConfig);
             config.expanded = false;
             $rootScope._leftBladeConfig = config;
@@ -102,13 +126,13 @@
 
         return {
             setRightConfig: function (config) {
-                if(config != $rootScope._rightBladeConfig){
+                if (config != $rootScope._rightBladeConfig) {
                     $rootScope._rightBladeConfig = config;
                 }
             },
 
             setLeftConfig: function (config) {
-                if(config.templateUrl != $rootScope._leftBladeConfig){
+                if (config.templateUrl != $rootScope._leftBladeConfig) {
                     config.position = 'left';
                     $rootScope._leftBladeConfig = config;
                 }

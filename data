@@ -12,8 +12,6 @@
 - define logo and restyle blade menu
 - publish to google play
 
-Cordova commands
-
 Prepare cordova project
 -----------------------
 cordova create mobile com.word-meaning.com WordMeaning
