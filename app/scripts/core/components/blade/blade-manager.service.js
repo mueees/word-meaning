@@ -77,7 +77,7 @@
                     var evt = this._clearEvent(e);
 
                     this.x = evt.x - this.startX;
-                    this.y = evt.x - this.startY;
+                    this.y = evt.y - this.startY;
 
                     if (!this.direction) {
                         if (Math.abs(this.x) > this.thresholdX) {

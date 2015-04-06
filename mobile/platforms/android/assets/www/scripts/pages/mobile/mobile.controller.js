@@ -14,9 +14,15 @@
                     },
                     {
                         sref: 'mobile.list',
-                        text: 'List',
+                        text: 'Remembered',
                         icon: 'list-ul'
-                    }/*,
+                    },
+                    {
+                        sref: 'mobile.recent',
+                        text: 'Recent',
+                        icon: 'sort-amount-desc'
+                    }
+                    /*,
                     {
                         sref: 'mobile.card',
                         text: 'Card',

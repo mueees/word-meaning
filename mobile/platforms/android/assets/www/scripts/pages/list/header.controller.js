@@ -2,6 +2,6 @@
     'use strict';
 
     angular.module('seed.mobile.list').controller('HeaderListController', function ($scope) {
-        $scope.title = 'Remembered List';
+        $scope.title = 'Remembered Words';
     });
 })();

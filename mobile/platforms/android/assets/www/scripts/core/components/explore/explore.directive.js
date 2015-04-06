@@ -9,9 +9,11 @@
                 definition: "="
             },
             link: function ($scope) {
-                var currentWord = null;
+                var currentWord = null,
+                    wordRequest = null;
 
                 $scope.form = {};
+
                 $scope.word = {};
 
                 $scope.$watch('form.word', _.debounce(function () {
@@ -28,26 +30,33 @@
                     WordResource.forgetById($scope.word.id);
                 };
 
-                $scope.clearWord = function(){
+                $scope.clearWord = function () {
                     $scope.form = {};
                 };
 
                 $scope.onGetDefinition = function () {
                     if ($scope.form.word) {
-                        if($scope.form.word != currentWord){
+                        if ($scope.form.word != currentWord) {
+                            if(wordRequest && wordRequest.abort) {
+                                wordRequest.abort();
+                            }
+
                             $scope.loading = true;
                             currentWord = $scope.form.word;
-                            WordResource.getWord($scope.form.word).then(function (word) {
+                            $scope.word = {};
+
+                            (wordRequest = WordResource.getWord($scope.form.word)).then(function (word) {
                                 $scope.loading = false;
 
-                                if($scope.form.word == word.word){
+                                if ($scope.form.word == word.word) {
                                     $scope.word = word;
                                 }
                             });
                         }
                     } else {
-                        $scope.word = {};
-                        $scope.$digest();
+                        $scope.$apply(function () {
+                            $scope.word = {};
+                        });
                     }
                 };
             }

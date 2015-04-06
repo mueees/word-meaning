@@ -20,7 +20,7 @@
                     {
                         sref: 'mobile.recent',
                         text: 'Recent',
-                        icon: 'bookmark46'
+                        icon: 'sort-amount-desc'
                     }
                     /*,
                     {

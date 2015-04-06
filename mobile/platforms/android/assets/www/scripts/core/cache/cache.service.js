@@ -27,9 +27,9 @@
                     word: word
                 });
 
-                if(wordFromCache){
+                if (wordFromCache) {
                     remembered = localStorageService.get('remembered');
-                    if( remembered.indexOf(wordFromCache.id) != -1 ){
+                    if (remembered.indexOf(wordFromCache.id) != -1) {
                         wordFromCache.status = 'remembered';
                     }
                 }
@@ -56,7 +56,7 @@
             rememberById: function (id) {
                 var remembered = localStorageService.get('remembered');
 
-                if( remembered.indexOf(id) == -1 ){
+                if (remembered.indexOf(id) == -1) {
                     remembered.push(id);
                     localStorageService.set('remembered', remembered);
                 }
@@ -66,7 +66,7 @@
                 var remembered = localStorageService.get('remembered'),
                     index = remembered.indexOf(id);
 
-                if( index != -1 ){
+                if (index != -1) {
                     remembered.splice(index, 1);
                     localStorageService.set('remembered', remembered);
                 }
@@ -78,7 +78,7 @@
                     result = [];
 
                 angular.forEach(remembered, function (id) {
-                    var word =  _.find(localStorageService.get('words'), {
+                    var word = _.find(words, {
                         id: id
                     });
                     result.push(word);
@@ -89,10 +89,26 @@
 
             toRecent: function (id) {
                 var recent = localStorageService.get('recent');
-                if(recent.length > 50){
+                if (recent.length > 50) {
                     recent = recent.splice(0, 49);
                 }
                 recent.unshift(id);
+                localStorageService.set('recent', recent);
+            },
+
+            getRecentWords: function () {
+                var recent = localStorageService.get('recent'),
+                    words = localStorageService.get('words'),
+                    result = [];
+
+                angular.forEach(recent, function (id) {
+                    var word = _.find(words, {
+                        id: id
+                    });
+                    result.push(word);
+                });
+
+                return result;
             }
         }
     });

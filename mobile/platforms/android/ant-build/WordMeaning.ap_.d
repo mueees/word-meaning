@@ -41,6 +41,8 @@
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/mobile \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/list \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/viewport \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/recent \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/random \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/promo \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/explore \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/mobile/mobile.route.js \
@@ -53,6 +55,14 @@
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/viewport/viewport.controller.js \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/viewport/viewport.module.js \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/viewport/viewport.route.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/recent/header.controller.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/recent/recent.route.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/recent/recent.module.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/recent/recent.controller.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/random/header.controller.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/random/recent.route.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/random/recent.module.js \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/random/recent.controller.js \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/promo/promo.route.js \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/promo/promo.module.js \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/scripts/pages/promo/promo.controller.js \
@@ -116,11 +126,8 @@
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/css/vendor/bootstrap.css \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/symbol \
-/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-app \
-/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-app/source \
-/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-app/source/svg \
-/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-app/source/svg/write20.svg \
-/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-app/source/svg/youtube35.svg \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-write20.svg \
+/home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/items/svg-icon-youtube35.svg \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/symbol/svg-sprite.svg \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/svg/symbol/sprite.symbol.html \
 /home/mue/web/projects/word-meaning/mobile/platforms/android/assets/www/assets/img/folder2 \

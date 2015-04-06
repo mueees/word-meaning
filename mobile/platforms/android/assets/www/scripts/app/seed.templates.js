@@ -1,4 +1,4 @@
-angular.module('templates-app', ['app/scripts/core/components/blade/blade.directive.view.html', 'app/scripts/core/components/explore/explore.directive.view.html', 'app/scripts/core/components/menu/menu.directive.view.html', 'app/scripts/core/components/words/definition/definition.directive.view.html', 'app/scripts/core/components/words/list/list.directive.view.html', 'app/scripts/core/header/header.view.html', 'app/scripts/core/menu/main/menu.view.html', 'app/scripts/pages/explore/explore.view.html', 'app/scripts/pages/list/list.view.html', 'app/scripts/pages/mobile/mobile.view.html', 'app/scripts/pages/promo/promo.view.html', 'app/scripts/pages/viewport/viewport.view.html']);
+angular.module('templates-app', ['app/scripts/core/components/blade/blade.directive.view.html', 'app/scripts/core/components/explore/explore.directive.view.html', 'app/scripts/core/components/menu/menu.directive.view.html', 'app/scripts/core/components/words/definition/definition.directive.view.html', 'app/scripts/core/components/words/list/list.directive.view.html', 'app/scripts/core/header/header.view.html', 'app/scripts/core/menu/main/menu.view.html', 'app/scripts/pages/explore/explore.view.html', 'app/scripts/pages/list/list.view.html', 'app/scripts/pages/mobile/mobile.view.html', 'app/scripts/pages/promo/promo.view.html', 'app/scripts/pages/random/random.view.html', 'app/scripts/pages/recent/recent.view.html', 'app/scripts/pages/viewport/viewport.view.html']);
 
 angular.module("app/scripts/core/components/blade/blade.directive.view.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/scripts/core/components/blade/blade.directive.view.html",
@@ -99,6 +99,7 @@ angular.module("app/scripts/core/header/header.view.html", []).run(["$templateCa
 angular.module("app/scripts/core/menu/main/menu.view.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/scripts/core/menu/main/menu.view.html",
     "<div ng-controller=\"MenuBladeController\">\n" +
+    "    <div class=\"top\"></div>\n" +
     "    <seed-menu seed-config=\"seedMenuConfiguration\"></seed-menu>\n" +
     "</div>");
 }]);
@@ -155,6 +156,20 @@ angular.module("app/scripts/pages/promo/promo.view.html", []).run(["$templateCac
     "    <p>PNG icon</p>\n" +
     "    <i class=\"icon-test\"></i>\n" +
     "</div>");
+}]);
+
+angular.module("app/scripts/pages/random/random.view.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("app/scripts/pages/random/random.view.html",
+    "<p>random</p>");
+}]);
+
+angular.module("app/scripts/pages/recent/recent.view.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("app/scripts/pages/recent/recent.view.html",
+    "<ul>\n" +
+    "    <li ng-repeat=\"word in recentWords track by $index\">\n" +
+    "        <seed-word-list-item word=\"word\"></seed-word-list-item>\n" +
+    "    </li>\n" +
+    "</ul>");
 }]);
 
 angular.module("app/scripts/pages/viewport/viewport.view.html", []).run(["$templateCache", function($templateCache) {

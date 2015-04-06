@@ -16,24 +16,32 @@
                 var deferred = $q.defer(),
                     promise = deferred.promise;
 
+                var deferredAbort = $q.defer();
+
                 var wordFromCache = Cache.getWord(word);
 
                 if (wordFromCache) {
                     Cache.toRecent(wordFromCache.id);
                     deferred.resolve(wordFromCache);
                 } else {
-                    WordModel.one().get({word: word}).then(function (wordModel) {
+                    WordModel.one().withHttpConfig({timeout: deferredAbort.promise}).get({word: word}).then(function (wordModel) {
                         var plainWord = wordModel.plain();
 
                         plainWord.word = word;
                         plainWord.id = seedGUID.generate();
 
-                        Cache.toRecent(plainWord.id);
-                        Cache.toCache(plainWord);
+                        if(plainWord.definitions && plainWord.definitions.length){
+                            Cache.toRecent(plainWord.id);
+                            Cache.toCache(plainWord);
+                        }
 
                         deferred.resolve(plainWord);
                     });
                 }
+
+                promise.abort = function () {
+                    deferredAbort.resolve();
+                };
 
                 return promise;
             },
@@ -48,6 +56,10 @@
 
             getRememberedWords: function () {
                 return Cache.getRememberedWords();
+            },
+
+            getRecentWords: function () {
+                return Cache.getRecentWords();
             }
         };
     });

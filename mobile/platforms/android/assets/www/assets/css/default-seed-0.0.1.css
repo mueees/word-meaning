@@ -141,7 +141,7 @@ seed-blade .content {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 250px;
+  width: 80%;
   z-index: 20;
   -webkit-transform: translate3d(-80%, 0, 0);
   -moz-transform: translate3d(-80%, 0, 0);

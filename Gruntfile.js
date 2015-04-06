@@ -407,7 +407,7 @@ module.exports = function (grunt) {
                     shape: {
                         id: {
                             generator: function (path) {
-                                var array = path.split('\\');
+                                var array = path.split('/');
                                 var fileName = array[array.length - 1];
                                 var fileNameArray = fileName.split('.');
                                 return 'svg-icon-' + fileNameArray[0];
@@ -468,8 +468,8 @@ module.exports = function (grunt) {
         'copy:app_js',
         'copy:app_assets',
         'svg_sprite:dev',
-        /*'image_resize:resize_small',
-        'image_resize:resize_big',*/
+        'image_resize:resize_small',
+        'image_resize:resize_big',
         'sprite:dev',
         'stylus:dev',
 
