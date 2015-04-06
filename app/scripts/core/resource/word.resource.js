@@ -16,13 +16,15 @@
                 var deferred = $q.defer(),
                     promise = deferred.promise;
 
+                var deferredAbort = $q.defer();
+
                 var wordFromCache = Cache.getWord(word);
 
                 if (wordFromCache) {
                     Cache.toRecent(wordFromCache.id);
                     deferred.resolve(wordFromCache);
                 } else {
-                    WordModel.one().get({word: word}).then(function (wordModel) {
+                    WordModel.one().withHttpConfig({timeout: deferredAbort.promise}).get({word: word}).then(function (wordModel) {
                         var plainWord = wordModel.plain();
 
                         plainWord.word = word;
@@ -34,6 +36,10 @@
                         deferred.resolve(plainWord);
                     });
                 }
+
+                promise.abort = function () {
+                    deferredAbort.resolve();
+                };
 
                 return promise;
             },
