@@ -11,7 +11,8 @@ var seed = seed || {};
         //pages
         'seed.promo',
         'seed.mobile.explore',
-        'seed.mobile.list'
+        'seed.mobile.list',
+        'seed.mobile.recent'
     ];
 
     angular.module('seed', inject);

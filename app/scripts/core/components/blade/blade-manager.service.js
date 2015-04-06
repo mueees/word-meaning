@@ -16,6 +16,7 @@
                 this.minStartXDistance = opts.minStartXDistance || 50;
                 this.minDistance = opts.minDistance || 50;
                 this.onOpedBlade = opts.onOpedBlade || angular.noop;
+                this.onCloseBlade = opts.onCloseBlade || angular.noop;
 
                 //threshold that determinate this X or Y swipe
                 this.thresholdX = 20;
@@ -59,11 +60,15 @@
                 if (!e.seedPrevent) {
                     var evt = this._clearEvent(e);
 
-                    if (evt.x < this.minStartXDistance) {
-                        this.isRun = true;
-                        this.startX = evt.x;
-                        this.startY = evt.y;
-                    }
+                    this.isRun = true;
+                    this.startX = evt.x;
+                    this.startY = evt.y;
+
+                    /*if (evt.x < this.minStartXDistance) {
+                     this.isRun = true;
+                     this.startX = evt.x;
+                     this.startY = evt.y;
+                     }*/
                 }
             },
 
@@ -86,7 +91,13 @@
 
             _doDragEnd: function () {
                 if (this.isRun && this.direction == 'x' && Math.abs(this.x) > this.minDistance) {
-                    this.onOpedBlade();
+                    if (this.startX < this.minStartXDistance) {
+                        //open blade
+                        this.onOpedBlade();
+                    } else if (this.x < 0) {
+                        //close blade
+                        this.onCloseBlade();
+                    }
                 }
 
                 this.startY = this.startX = this.x = this.y = 0;
@@ -99,6 +110,13 @@
                 $rootScope.$apply(function () {
                     expandLeftBlade();
                 });
+            },
+            onCloseBlade: function () {
+                if($rootScope._leftBladeConfig.expanded){
+                    $rootScope.$apply(function () {
+                        collapseLeftBlade();
+                    });
+                }
             }
         });
 
@@ -121,7 +139,6 @@
             var config = angular.copy($rootScope._leftBladeConfig);
             config.expanded = false;
             $rootScope._leftBladeConfig = config;
-            $rootScope.$digest();
         }
 
         return {

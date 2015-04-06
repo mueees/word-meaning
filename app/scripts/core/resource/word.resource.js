@@ -30,8 +30,10 @@
                         plainWord.word = word;
                         plainWord.id = seedGUID.generate();
 
-                        Cache.toRecent(plainWord.id);
-                        Cache.toCache(plainWord);
+                        if(plainWord.definitions && plainWord.definitions.length){
+                            Cache.toRecent(plainWord.id);
+                            Cache.toCache(plainWord);
+                        }
 
                         deferred.resolve(plainWord);
                     });
@@ -54,6 +56,10 @@
 
             getRememberedWords: function () {
                 return Cache.getRememberedWords();
+            },
+
+            getRecentWords: function () {
+                return Cache.getRecentWords();
             }
         };
     });
